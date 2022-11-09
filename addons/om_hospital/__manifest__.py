@@ -6,7 +6,9 @@
     'summary':'',
     'depends': [],
     'data':[
-        'views/menu.xml'
+        'security/ir.model.access.csv',
+        'views/menu.xml',
+        'views/patient_view.xml'
     ],
     'installable': True,
     'auto_install': False,
