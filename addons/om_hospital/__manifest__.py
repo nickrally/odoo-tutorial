@@ -4,7 +4,7 @@
     'sequence': -100,
     'category':'',
     'summary':'',
-    'depends': [],
+    'depends': ['mail'],
     'data':[
         'security/ir.model.access.csv',
         'views/menu.xml',
