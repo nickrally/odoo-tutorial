@@ -18,7 +18,7 @@
 
     <menuitem id="menu_female_patient"
               action="action_hospital_female_patient"
-              name="Female Patient"
+              name="Female Patients"
               parent="menu_patient_master"
               sequence="0"/>
 </odoo>
