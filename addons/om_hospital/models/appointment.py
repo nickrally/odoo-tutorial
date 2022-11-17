@@ -14,6 +14,17 @@ class HospitalAppointment(models.Model):
     booking_date = fields.Date(string='Booking Date', default=fields.Date.context_today)
     country = fields.Char(string="Country")
     apt_ref = fields.Char(string="Apt Ref", compute="_compute_apt_ref", store=True)
+    prescription = fields.Html(string='Prescription')
+    priority = fields.Selection([
+        ('0','Normal'),
+        ('1','Low'),
+        ('2','High'),
+        ('3','Very High')], string="Priority", help='Gives sequence order when displaying a list')
+    state = fields.Selection([
+        ('draft','Draft'),
+        ('in_consultation','In Consultation'),
+        ('done','Done'),
+        ('cancel','Cancelled')], string="Status", default='draft', required=True)
 
     @api.onchange('patient_id')
     def onchage_patient_id(self):
@@ -26,3 +37,6 @@ class HospitalAppointment(models.Model):
                 record.apt_ref  =  record.ref + str(int(time.mktime(record.appointment_time.timetuple())))
             else:
                 record.apt_ref = '0'
+
+    def action_test(self):
+        print("button clicked")

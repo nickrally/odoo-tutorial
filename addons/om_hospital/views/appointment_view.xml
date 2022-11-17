@@ -6,7 +6,7 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="patient_id"/> 
+                <field name="patient_id"/>
                 <field name="gender"/>
                 <field name="ref"/>
                 <field name="country"/>
@@ -15,17 +15,23 @@
                 <field name="apt_ref"/>
             </tree>
         </field>
-    </record>   
+    </record>
 
     <record id="view_hospital_appointment_form" model="ir.ui.view">
         <field name="name">hospital.appointment.form</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}" statusbar_visible="draft,in_consultation,done"/>
+                </header>
                 <sheet>
+                    <div>
+                            <field name="priority" widget="priority"/>
+                    </div>
                     <group>
                         <group>
-                            <field name="patient_id"/> 
+                            <field name="patient_id"/>
                             <field name="gender"/>
                             <field name="ref"/>
                             <field name="country"/>
@@ -34,8 +40,22 @@
                             <field name="appointment_time"/>
                             <field name="booking_date"/>
                             <field name="apt_ref"/>
+                            <button name="action_test" string="Object Button" type="object" class="oe_highlight"/>
+                            <button name="%(om_hospital.action_hospital_patient)d" string="Action Button" type="action" class="oe_highlight"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Prescription" name="prescription">
+                            <group>
+                                <field name="prescription" placeholder="Enter perscription"/>
+                            </group>
+                        </page>
+                        <page string="Pharmacy" name="pharmacy">
+                            <group>
+                                <field name="booking_date" />
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -48,7 +68,7 @@
             <search>
             </search>
         </field>
-    </record> 
+    </record>
 
     <record id="action_hospital_appointment" model="ir.actions.act_window">
         <field name="name">Appointments</field>
