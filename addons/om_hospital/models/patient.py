@@ -14,6 +14,8 @@ class HospitalPatient(models.Model):
     gender = fields.Selection([('male','Male'),('female','Female')], string="Gender")
     active = fields.Boolean(string="Active", default=True)
     country = fields.Char(string="Country")
+    marital_status = fields.Selection([('single','Single'),('married','Married')], string='Marital Status')
+    partner = fields.Char(string='Partner')
 
     @api.depends('date_of_birth')
     def _compute_age(self):

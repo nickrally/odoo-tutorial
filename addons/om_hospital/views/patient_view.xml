@@ -14,7 +14,7 @@
                 <field name="country"/>
             </tree>
         </field>
-    </record>   
+    </record>
 
     <record id="view_hospital_patient_form" model="ir.ui.view">
         <field name="name">hospital.patient.form</field>
@@ -29,6 +29,11 @@
                             <field name="age"/>
                         </group>
                         <group>
+                            <field name="marital_status"/>
+                            <field name="partner" attrs="{'readonly':[('marital_status','!=','married')],
+                                                          'required':[('marital_status','=','married')]}"/>
+                        </group>
+                        <group>
                             <field name="ref"/>
                             <field name="gender"/>
                             <field name="country"/>
@@ -41,7 +46,7 @@
                     <field name="message_follower_ids" groups="base.group_user"/>
                     <field name="activity_ids"/>
                     <field name="message_ids"/>
-                </div> 
+                </div>
             </form>
         </field>
     </record>
@@ -68,7 +73,7 @@
                 </searchpanel>
             </search>
         </field>
-    </record> 
+    </record>
 
     <record id="action_hospital_patient" model="ir.actions.act_window">
         <field name="name">Patients</field>
