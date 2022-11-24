@@ -14,7 +14,7 @@
                 <field name="country" optional="hide"/>
                 <field name="appointment_time"/>
                 <field name="booking_date"/>
-                <field name="apt_ref"/>
+                <field name="apt_ref" optional="hide"/>
                 <field name="activity_ids" widget="list_activity"/>
                 <field name="state"
                        decoration-info="state in ('draft','in_consultation')"
