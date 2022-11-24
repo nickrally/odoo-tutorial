@@ -5,14 +5,22 @@
         <field name="name">hospital.appointment.tree</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree decoration-info="state in ('draft','in_consultation')"
+                  decoration-success="state == 'done'"
+                  decoration-danger="state == 'cancel'">
                 <field name="patient_id"/>
-                <field name="gender"/>
-                <field name="ref"/>
-                <field name="country"/>
+                <field name="gender" optional="hide"/>
+                <field name="ref" optional="show"/>
+                <field name="country" optional="hide"/>
                 <field name="appointment_time"/>
                 <field name="booking_date"/>
                 <field name="apt_ref"/>
+                <field name="activity_ids" widget="list_activity"/>
+                <field name="state"
+                       decoration-info="state in ('draft','in_consultation')"
+                       decoration-success="state == 'done'"
+                       decoration-danger="state == 'cancel'"
+                       widget="badge"/>
             </tree>
         </field>
     </record>
@@ -60,6 +68,12 @@
                         </page>
                     </notebook>
                 </sheet>
+                <!-- Chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
             </form>
         </field>
     </record>
