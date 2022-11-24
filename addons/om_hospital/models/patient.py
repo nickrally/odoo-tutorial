@@ -17,6 +17,11 @@ class HospitalPatient(models.Model):
     marital_status = fields.Selection([('single','Single'),('married','Married')], string='Marital Status')
     partner = fields.Char(string='Partner')
 
+    @api.model
+    def create(self, vals):
+        vals['ref'] = self.env['ir.sequence'].next_by_code('hospital.patient')
+        return super(HospitalPatient, self).create(vals)
+
     @api.depends('date_of_birth')
     def _compute_age(self):
         for record in self:
