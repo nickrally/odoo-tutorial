@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <record id="view_hospital_appointment_tree_inherit" model="ir.ui.view">
+        <field name="name">hospital.appointment.tree.inherit</field>
+        <field name="model">hospital.appointment</field>
+        <field name="inherit_id" ref="om_hospital.view_hospital_appointment_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='booking_date']" position="after">
+                <field name="doctor_id" optional="show" widget="many2one_avatar_user" />
+            </xpath>
+        </field>
+    </record>
+
     <record id="view_hospital_appointment_form_inherit" model="ir.ui.view">
         <field name="name">hospital.appointment.form.inherit</field>
         <field name="model">hospital.appointment</field>
         <field name="inherit_id" ref="om_hospital.view_hospital_appointment_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='apt_ref']" position="before">
+                <field name="doctor_id" widget="many2one_avatar"/>
+            </xpath>
             <xpath expr="//field[@name='prescription']" position="after">
                 <field name="must_have"/>
             </xpath>

@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="om_hospital.view_hospital_patient_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='marital_status']" position="before">
-                <field name="crazy_doctor"/>
+                <field name="primary_doctor_id"/>
             </xpath>
         </field>
     </record>

@@ -38,5 +38,10 @@ class HospitalAppointment(models.Model):
             else:
                 record.apt_ref = '0'
 
-    def action_test(self):
-        print("button clicked")
+    def cancel_appointment(self):
+        self.state = 'cancel'
+        # for record in self:
+        #     record.state = 'cancel'
+
+    def reset_to_draft(self):
+        self.state = 'draft'
