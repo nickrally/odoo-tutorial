@@ -6,7 +6,7 @@ services:
     depends_on:
       - postgres
     ports:
-      - "127.0.0.1:8070:8069"
+      - "127.0.0.1:8071:8069"
     env_file:
       .env
     volumes:
@@ -18,9 +18,9 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - royalpatients:/var/lib/postgresql/data/pgdata
+       - royals:/var/lib/postgresql/data/pgdata
     env_file:
       .env
-    
+
 volumes:
-  royalpatients: {}
+  royals: {}
