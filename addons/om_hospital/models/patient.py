@@ -16,6 +16,7 @@ class HospitalPatient(models.Model):
     country = fields.Char(string="Country")
     marital_status = fields.Selection([('single','Single'),('married','Married')], string='Marital Status')
     partner = fields.Char(string='Partner')
+    image = fields.Image(string='Image')
 
     @api.model
     def create(self, vals):

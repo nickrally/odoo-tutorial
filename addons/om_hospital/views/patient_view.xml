@@ -22,11 +22,13 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
                     <group>
                         <group>
                             <field name="name"/>
                             <field name="date_of_birth"/>
                             <field name="age"/>
+                            <field name="ref"/>
                         </group>
                         <group>
                             <field name="marital_status"/>
@@ -34,7 +36,6 @@
                                                           'required':[('marital_status','=','married')]}"/>
                         </group>
                         <group>
-                            <field name="ref"/>
                             <field name="gender"/>
                             <field name="country"/>
                             <field name="active"/>
