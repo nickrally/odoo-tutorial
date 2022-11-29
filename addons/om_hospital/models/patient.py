@@ -17,6 +17,7 @@ class HospitalPatient(models.Model):
     marital_status = fields.Selection([('single','Single'),('married','Married')], string='Marital Status')
     partner = fields.Char(string='Partner')
     image = fields.Image(string='Image')
+    tag_ids = fields.Many2many('patient.tag', string='Tags')
 
     @api.model
     def create(self, vals):

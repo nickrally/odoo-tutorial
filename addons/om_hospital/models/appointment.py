@@ -41,9 +41,13 @@ class HospitalAppointment(models.Model):
                 record.apt_ref = '0'
 
     def cancel_appointment(self):
-        self.state = 'cancel'
+        # self.state = 'cancel'
+        # ------------------------
         # for record in self:
         #     record.state = 'cancel'
+        # -------------------------
+        action = self.env.ref('om_hospital.action_cancel_appointment').read()[0]
+        return action
 
     def reset_to_draft(self):
         self.state = 'draft'
