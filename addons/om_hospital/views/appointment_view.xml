@@ -52,9 +52,15 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="cancel_appointment"
+                    <!-- <button name="cancel_appointment"
                             string="Cancel"
                             type="object"
+                            class="oe_highlight"
+                            states="draft,in_consultation"/> -->
+                    <button name="%(om_hospital.action_cancel_appointment)d"
+                            string="Cancel"
+                            context="{'default_reason':'just because'}"
+                            type="action"
                             class="oe_highlight"
                             states="draft,in_consultation"/>
                     <button name="reset_to_draft"
@@ -92,7 +98,7 @@
                         <page string="Prescription" name="prescription">
                             <group>
                                 <field name="prescription"
-                                       placeholder="Enter perscription"
+                                       placeholder="Enter prescription"
                                        options="{'collaborative': true, 'resizable': true, 'codeview': true}" />
                             </group>
                         </page>
@@ -103,6 +109,7 @@
                                         <field name="product_id"/>
                                         <field name="price_unit" attrs="{'column_invisible':[('parent.hide_price','=',True)]}"/>
                                         <field name="qty"/>
+                                        <field name="price_total"/>
                                     </tree>
                                     <form>
                                         <group>
