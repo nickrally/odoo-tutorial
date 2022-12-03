@@ -36,7 +36,7 @@
                                                           'required':[('marital_status','=','married')]}"/>
                         </group>
                         <group>
-                            <field name="gender"/>
+                            <field name="gender" invisible="context.get('hide_gender')"/>
                             <field name="tag_ids" widget="many2many_tags" options="{'color_field':'color'}"/>
                             <field name="country"/>
                             <field name="active"/>

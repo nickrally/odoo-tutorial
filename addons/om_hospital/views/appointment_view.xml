@@ -59,7 +59,7 @@
                             states="draft,in_consultation"/> -->
                     <button name="%(om_hospital.action_cancel_appointment)d"
                             string="Cancel"
-                            context="{'default_reason':'just because'}"
+                            context="{'default_reason':'just because', 'hide_ref':1}"
                             type="action"
                             class="oe_highlight"
                             states="draft,in_consultation"/>
