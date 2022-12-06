@@ -4,7 +4,7 @@
     'sequence': -100,
     'category':'',
     'summary':'',
-    'depends': ['mail','product'],
+    'depends': ['mail','product','report_xlsx'],
     'data':[
         'security/ir.model.access.csv',
         'data/patient_tag_data.xml',
@@ -15,7 +15,9 @@
         'views/female_patient_view.xml',
         'views/appointment_view.xml',
         'views/patient_tag_view.xml',
-        'data/sequence.xml'
+        'data/sequence.xml',
+        'report/patient_card_template.xml',
+        'report/report.xml',
     ],
     'installable': True,
     'auto_install': False,
